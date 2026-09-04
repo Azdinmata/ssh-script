@@ -1,0 +1,11 @@
+[Unit]
+Description=DNSTT (DNS Tunnel) Server for SSH (port 22)
+After=network.target
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/dnstt-server -udp :53 -privkey-file /etc/firewallfalcon/dnstt/server.key fr.freefrnet.space 127.0.0.1:22
+Restart=always
+RestartSec=3
+[Install]
+WantedBy=multi-user.target

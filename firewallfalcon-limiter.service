@@ -1,0 +1,17 @@
+[Unit]
+Description=FirewallFalcon Active User Limiter
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/firewallfalcon-limiter.sh
+Restart=always
+RestartSec=10
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+MemoryHigh=48M
+MemoryMax=64M
+
+[Install]
+WantedBy=multi-user.target
